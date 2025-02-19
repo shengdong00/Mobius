@@ -6,7 +6,7 @@ from scipy.stats import norm
 # Initialise wrapper
 wrapper_fpath = (r"..\mobius.py")
 wr = imp.load_source('mobius', wrapper_fpath)
-wr.initialize('..\..\Applications\Persist\persist.dll')
+wr.initialize('..\..\Applications\IncaMicroplastics\incamicroplastics.dll')
 
 # Calibration functions
 calib_fpath = (r"..\mobius_calib_uncert_lmfit.py")
@@ -59,7 +59,10 @@ def log_likelihood(params, error_param_dict, comparisons, skip_timesteps=0):
 
 ###################################################################################################################
 
-dataset = wr.DataSet.setup_from_parameter_and_input_files('..\..\Applications\Persist\Haelva\optimized_params.dat', '..\..\Applications\Persist\Haelva\persist_inputs_Haelva.dat')
+dataset = wr.DataSet.setup_from_parameter_and_input_files(
+    '..\..\Applications\IncaMicroplastics\Vansjo\incamp_params_Vansjo.dat', 
+    '..\..\Applications\IncaMicroplastics\Vansjo\incamp_inputs_Vansjo.dat'
+)
 
 if __name__ == '__main__': # NOTE: this is necessary for parallelisation!
     
