@@ -1,0 +1,36 @@
+	
+	
+# Reaches from Henares catchment	
+# Sorbe	
+# Badiel	
+# Henares	
+	
+	
+start_date : 1996-01-01	
+timesteps  : 8765
+	
+	
+additional_timeseries:	
+"Measured flow"   unit "m3/s"
+"Observed bed MP" unit "kg/m2"
+"Observed river MP" unit "mg/L"
+"Observed suspended solids" unit "mg/L"
+
+
+index_set_dependencies:	
+"Actual precipitation" : {"Reaches"}	
+"Air temperature" : {"Reaches"}	
+"Grain input to land" : {"Reaches" "Landscape units" "Grain class"}
+"Measured flow" : {"Reaches"}	
+"Observed bed MP" : {"Reaches" "Grain class"}
+"Observed river MP" : {"Reaches" "Grain class"}
+"Observed suspended solids" : {"Reaches"}
+
+	
+inputs:
+
+include_file "met_data.dat"
+include_file "observed_flow.dat"
+include_file "mp_data.dat"
+include_file "ss_data.dat"
+include_file "best_sludge_application.dat"
