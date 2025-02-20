@@ -726,11 +726,11 @@ class DataSet :
 		'''
 		Get the name and type of all the equations in the model as a list of pairs of strings.
 		'''
-		num = mobiusdll.DllGetAllResultsCount(self.datasetptr, '__all!!__')
+		num = mobiusdll.DllGetAllResultsCount(self.datasetptr, b'__all!!__')
 		check_dll_error()
 		namearray = (ctypes.c_char_p * num)()
 		typearray = (ctypes.c_char_p * num)()
-		mobiusdll.DllGetAllResults(self.datasetptr, namearray, typearray, '__all!!__')
+		mobiusdll.DllGetAllResults(self.datasetptr, namearray, typearray, b'__all!!__')
 		check_dll_error()
 		return [(name.decode('utf-8'), type.decode('utf-8')) for name, type in zip(namearray, typearray)]
 		
